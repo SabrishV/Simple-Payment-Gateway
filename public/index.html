@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Simple Payment Gateway" />
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Login Form -->
+      <div id="loginForm" class="form-container">
+        <h2>Login</h2>
+        <form onsubmit="return handleLogin(event)">
+          <div class="form-group">
+            <input
+              type="text"
+              id="loginUsername"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p>
+          Don't have an account?
+          <a href="#" onclick="showRegister()">Register</a>
+        </p>
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerForm" class="form-container hidden">
+        <h2>Register</h2>
+        <form onsubmit="return handleRegister(event)">
+          <div class="form-group">
+            <input
+              type="text"
+              id="registerUsername"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Register</button>
+        </form>
+        <p>
+          Already have an account? <a href="#" onclick="showLogin()">Login</a>
+        </p>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="dashboard" class="dashboard hidden">
+        <header>
+          <h2>Welcome, <span id="userWelcome"></span>!</h2>
+          <button onclick="handleLogout()" class="btn-logout">Logout</button>
+        </header>
+
+        <div class="dashboard-content">
+          <!-- Products Section -->
+          <section class="products-section">
+            <h3>Available Products</h3>
+            <div class="products-grid" id="productsGrid">
+              <!-- Products will be dynamically inserted here -->
+            </div>
+          </section>
+
+          <!-- Payment Method Section -->
+          <section class="payment-section">
+            <h3>Payment Method</h3>
+            <div class="payment-methods">
+              <select id="paymentMethod" onchange="updatePaymentMethod()">
+                <option value="">Select Payment Method</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Bank Account">Bank Account</option>
+                <option value="UPI">UPI</option>
+                <option value="PayPal">PayPal</option>
+              </select>
+            </div>
+            <div id="paymentDetails" class="payment-details hidden">
+              <!-- Payment details will be shown here -->
+            </div>
+          </section>
+
+          <!-- Transactions Section -->
+          <section class="transactions-section">
+            <h3>Transaction History</h3>
+            <div class="transactions-list" id="transactionsList">
+              <!-- Transactions will be dynamically inserted here -->
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
