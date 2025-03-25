@@ -30,7 +30,7 @@ This project demonstrates a simple payment gateway integration using Java. It al
 
 1. **Access the payment interface:**
 
-   Open your web browser and navigate to `http://localhost:5000` to access the payment interface.
+   Open your web browser and navigate to `cd SimplePaymentGateway/public/index.html` to access the payment interface.
 
 ## License
 
